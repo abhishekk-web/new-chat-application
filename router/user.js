@@ -5,15 +5,15 @@ const router = express.Router();
 
 
 
-router.get('/login',(req, res, next)=>{
+router.get('/user',(req, res, next)=>{
 
-    res.send('<form onsubmit="localStorage.setItem(`username`, document.getElementById(`username`).value)" action="/login" method="POST" "><input type="text" name="username" id="username" placeholder="Enter your name"><br><button type="submit">Login</button></form>')
+    res.send('<form onsubmit="localStorage.setItem(`name`, document.getElementById(`name`).value)" action="/user" method="POST" "><input type="text" name="name" id="name" placeholder="Enter your name"><br><button type="submit">Login</button></form>')
     
 
 })
 
 
-    router.post('/login', (req, res, next)=>{
+    router.post('/user', (req, res, next)=>{
 
         res.redirect('/');
         console.log(req.body);

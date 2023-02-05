@@ -15,7 +15,7 @@ const router = express.Router();
                 data = 'There is no data'
 
             }
-            res.send(`${data}<form action="/" onsubmit="document.getElementById('username').value=localStorage.getItem('username')"  method="POST" ><input type="text" name="message" id="message" placeholder="write a message"><input name="username" id="username"><br><br><button type="submit">Send</button></form>`) 
+            res.send(`${data}<form action="/" onsubmit="document.getElementById('name').value=localStorage.getItem('name')"  method="POST" ><input type="text" name="message" id="message" placeholder="write a message"><input name="name" id="name"><br><br><button type="submit">Send</button></form>`) 
 
         })
 
@@ -27,9 +27,8 @@ const router = express.Router();
 
     router.post('/', (req, res, next)=>{
 
-        // data.push(`{${req.body.username}:${req.body.message}}`);
-        console.log(`${req.body.username}:${req.body.message}`);
-        fs.writeFile("messages.txt", `${req.body.username}: ${req.body.message}`, {flag: 'a'},(err)=>{
+        console.log(`${req.body.name}:${req.body.message}`);
+        fs.writeFile("messages.txt", `${req.body.name}: ${req.body.message}`, {flag: 'a'},(err)=>{
             if(err){
                 console.log(err);
             }
